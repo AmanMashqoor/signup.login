@@ -22,8 +22,6 @@ const __dirname = dirname(__filename);
 // Define the directory where your HTML file is located.
 const publicDirectory = path.join(__dirname, 'public');
 
-// Serve static files from the 'public' directory.
-app.use(express.static(publicDirectory));
 
 //example route for this server
 app.get('/', (req, res) => {
@@ -35,6 +33,9 @@ app.get('/', (req, res) => {
     <a href="/login"><button >Go to Login</button></a>
     <div>`);
 });
+
+// Serve static files from the 'public' directory.
+app.use(express.static(publicDirectory));
 
 app.use('/api', checkAuth);
 
