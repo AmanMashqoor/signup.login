@@ -44,10 +44,14 @@ mongoose
     console.log(error);
 });
 
+app.get('/', (req, res)=>{
+    res.send("Default Page.")
+})
 
 app.get('/check', (req, res)=>{
     res.send("Hello.")
 })
+
 
 //ROUTE 1:  Define a route '/create-user' for signup form and add validation middleware.
 app.post('/create-user', [
