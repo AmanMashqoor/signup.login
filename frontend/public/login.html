@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form</title>
+  <link rel="stylesheet"  href="style.css">
+</head>
+<body>
+  <a href="/signup"><button>Go to SignUp</button></a>
+  <a href="/login"><button >Go to Login</button></a>
+  <form id="login-form">
+
+    <input type="email" name="email" placeholder="Email" required><br/>
+    <div id="email-error" class="error-message"></div> <!-- Error div for email -->
+    
+    <input type="password" name="password" placeholder="Password" required autocomplete="current-password"><br/>
+    <div id="password-error" class="error-message"></div> <!-- Error div for password -->
+
+    <input type="submit" value="Login"/>
+  </form>
+
+  <div id="error-messages"></div>
+
+  <script src="login.js"></script>
+</body>
+</html>

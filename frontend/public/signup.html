@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup Form</title>
+  <link rel="stylesheet"  href="style.css">
+</head>
+<body>
+  <a href="/signup"><button>Go to SignUp</button></a>
+  <a href="/login"><button >Go to Login</button></a>
+  <br/>
+  <form id="signup-form">
+
+    <input type="text" name="username" placeholder="Username"><br/>
+    <div id="username-error" class="error-message"></div> <!-- Error div for username -->
+    
+    <input type="email" name="email" placeholder="Email"><br/>
+    <div id="email-error" class="error-message"></div> <!-- Error div for email -->
+    
+    <input type="password" name="password" placeholder="Password"><br/>
+    <div id="password-error" class="error-message"></div> <!-- Error div for password -->
+
+    <input type="submit" value="Sign Up"/>
+  </form>
+
+  <div id="error-messages"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

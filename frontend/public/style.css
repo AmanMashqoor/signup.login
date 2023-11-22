@@ -1,0 +1,12 @@
+/* .error-message {
+    background-color: transparent;
+    visibility: hidden;
+    padding: 0;
+    margin: 0;
+    border: none;
+    color: red;
+  } */
+  
+input{
+    margin: 5px;
+}
