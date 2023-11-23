@@ -10,6 +10,9 @@ import { JWT_SECRET } from './config.js';
 import fetchuser from './middleware/fetchuser.js';
 import errorHandler from './middleware/errorHandler.js';
 import undefinedRouteHandler from './middleware/undefinedRoute.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 app.use(express.json());
@@ -35,17 +38,18 @@ app.options('*', cors());
 mongoose
 .connect(mongoDBURL)
 .then(()=>{
-    console.log('App connected to database');
-    app.listen(PORT, () =>{
-        console.log(`App is listening to port: ${PORT}`);
-    });
+  console.log('App connected to database');
+  app.listen(PORT, () =>{
+    console.log(`App is listening to port: ${PORT}`);
+  });
 })
 .catch((error)=>{
-    console.log(error);
+  console.log(error);
 });
 
 app.get('/', (req, res)=>{
-    res.send("Default Page.")
+  console.log(process.env.mongoDBURL);
+  res.send("Default Page.")
 })
 
 app.get('/check', (req, res)=>{

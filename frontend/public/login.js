@@ -1,3 +1,9 @@
+// import dotenv from 'dotenv';
+
+require('dotenv').config();
+
+// dotenv.config();
+
 const form = document.getElementById('login-form');
 const emailError = document.getElementById('email-error');
 const passwordError = document.getElementById('password-error');
@@ -9,7 +15,7 @@ form.addEventListener('submit', async (e) => {
   const email = form.elements.email.value;
   const password = form.elements.password.value;
 
-  const response = await fetch('http://localhost:3000/login', {
+  const response = await fetch(process.env.DOMAIN+'/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

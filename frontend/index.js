@@ -4,6 +4,9 @@ import * as path from 'path';
 import checkAuth from './middleware/checkAuth.js';
 import errorHandler from './middleware/errorHandler.js';
 import undefinedRouteHandler from './middleware/undefinedRoute.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // The following two lines use ES module features to get the current filename and directory.
 import { fileURLToPath } from 'url';
@@ -34,6 +37,15 @@ app.get('/', (req, res) => {
     <div>`);
 });
 
+app.get('/trial', (req, res) => {
+  res.send(
+    `
+    <h1>Hello</h1>
+    `
+    // <h2>${process.env.API}api-user</h2>
+    );
+});
+
 // Serve static files from the 'public' directory.
 app.use(express.static(publicDirectory));
 
@@ -54,9 +66,9 @@ app.get('/login', (req, res) => {
 });
 
 // Define the port for your server.
-const PORT = 3002;
+const PORT = 3002 || process.env.PORT;
 
 // Start the server.
 app.listen(PORT, () => {
-  console.log(`Frontend server is running on port ${PORT} \nConnect at: http://localhost:3002 `);
+  console.log(`Frontend server is running on port ${PORT} \nConnect at: http://localhost:3002/ `);
 });
