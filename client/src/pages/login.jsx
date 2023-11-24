@@ -13,7 +13,7 @@ const Login = () => {
       const email = form.elements.email.value;
       const password = form.elements.password.value;
   
-      const response = await fetch('http://localhost:3000/login', {
+      const response = await fetch(`${process.env.REACT_APP_LINK}login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
