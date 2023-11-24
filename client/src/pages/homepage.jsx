@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom';
+import {apiLink} from '../../config.js'
 
 const Homepage = () => {
 
@@ -23,7 +24,7 @@ const Homepage = () => {
       }
 
       try {
-        const response = await fetch(`${process.env.REACT_APP_LINK}get-user`, {
+        const response = await fetch(`${apiLink}get-user`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
