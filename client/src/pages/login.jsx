@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import {apiLink} from '../../config.js'
 
 const Login = () => {
 
@@ -13,7 +14,7 @@ const Login = () => {
       const email = form.elements.email.value;
       const password = form.elements.password.value;
   
-      const response = await fetch(`${process.env.REACT_APP_LINK}login`, {
+      const response = await fetch(`${apiLink}login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -22,6 +23,7 @@ const Login = () => {
       });
   
       const data = await response.json();
+      console.log(apiLink)
   
       const displayError = (error, errorElement) => {
         if (typeof error === 'string') {

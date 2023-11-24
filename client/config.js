@@ -1,0 +1,1 @@
+export const apiLink = 'https://backend-blp1.onrender.com/'

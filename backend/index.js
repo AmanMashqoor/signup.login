@@ -18,20 +18,20 @@ const app = express();
 app.use(express.json());
 
 // Example: Allowing requests from all
-app.use(cors());
+// app.use(cors());
 
-app.options('*', cors());
+// app.options('*', cors());
 
 // Example: Allowing requests only from a specific origin (specific domain with all it's ports)
-// const origin = 'http://localhost'; 
-// app.use(cors({
-//   origin: (origin, callback) => {
-//     if (origin) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }}
-// }));
+const origin = 'https://65607d8058dbf30441d58096--stirring-tapioca-38c510.netlify.app/'; 
+app.use(cors({
+  origin: (origin, callback) => {
+    if (origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }}
+}));
 
 
 // Start the server & Connect to database
