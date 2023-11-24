@@ -48,7 +48,7 @@ mongoose
 });
 
 app.get('/', (req, res)=>{
-  console.log(process.env.mongoDBURL);
+  // console.log(process.env.mongoDBURL);
   res.send("Default Page.")
 })
 
@@ -177,7 +177,7 @@ app.post('/login', [
     const authtoken = jwt.sign(data, JWT_SECRET); //create a unique jwt token for user using it's unique id
     console.log(authtoken);
 
-    res.json({success, authtoken, redirect:'/api/homepage.html'})
+    res.json({success, authtoken, redirect:'/homepage'})
 
   } catch (error) {
     // console.error('Error adding user to the database:', error);
