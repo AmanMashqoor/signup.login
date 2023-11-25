@@ -69,8 +69,8 @@ const Login = () => {
           const token = data.authtoken;
           localStorage.setItem('authtoken', token);
         //   alert(data.message);
-          if (data.redirect) {
-            window.location.href = data.redirect;
+          if (data.success === true) {
+            window.location.href = '/homepage';
           } else {
             alert("No redirection address present.");
           }

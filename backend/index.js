@@ -23,7 +23,7 @@ app.use(express.json());
 // app.options('*', cors());
 
 // Example: Allowing requests only from a specific origin (specific domain with all it's ports)
-const origin = 'https://65607d8058dbf30441d58096--stirring-tapioca-38c510.netlify.app/' || 'https://backend-blp1.onrender.com/'; 
+const origin = ['https://65607d8058dbf30441d58096--stirring-tapioca-38c510.netlify.app/', 'https://backend-blp1.onrender.com/']; 
 app.use(cors({
   origin: (origin, callback) => {
     if (origin) {
