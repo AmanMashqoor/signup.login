@@ -1,17 +1,9 @@
 import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import {apiLink} from '../../config.js'
+import { redirect } from 'react-router-dom';
 
 const Homepage = () => {
-
-  const handleLogout = () => {
-    // Perform any logout-related actions (e.g., clearing local storage)
-    localStorage.removeItem('authtoken');
-
-    // Set loggedOut to true to trigger redirection
-    // setLoggedOut(true);
-    return redirect("/login");
-  };
 
   useEffect(() => {
     async function checkUserAuthentication() {
@@ -22,7 +14,7 @@ const Homepage = () => {
         window.location.href = '/login';
         return;
       }
-
+      
       try {
         const response = await fetch(`${apiLink}get-user`, {
           method: 'POST',
@@ -31,7 +23,7 @@ const Homepage = () => {
             authtoken: `${token}`,
           },
         });
-
+        
         
 
         if (response.ok) {
@@ -46,9 +38,18 @@ const Homepage = () => {
         console.error('Error fetching data:', error);
       }
     }
-
+    
     checkUserAuthentication();
   }, []);
+  
+  const handleLogout = () => {
+    // Perform any logout-related actions (e.g., clearing local storage)
+    localStorage.removeItem('authtoken');
+
+    // Set loggedOut to true to trigger redirection
+    // setLoggedOut(true);
+    return redirect("/login");
+  };
 
   // const handleLogout = () => {
   //   localStorage.removeItem('authtoken');
